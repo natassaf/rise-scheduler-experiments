@@ -1,0 +1,10 @@
+{
+  "binary_name": "fibonacci.wasm",
+  "func_name": "run",
+  "payload": "{\"n\": 7}",
+  "payload_compressed": false,
+  "task_id": "fib6",
+  "model_folder_name": "",
+  "cwasm_file": "fibonacci.cwasm",
+  "wat_file": "fibonacci.wat"
+}

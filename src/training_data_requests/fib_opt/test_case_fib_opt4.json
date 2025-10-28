@@ -1,0 +1,10 @@
+{
+  "binary_name": "fibonacci_optimized.wasm",
+  "func_name": "run",
+  "payload": "{\"n\": 33}",
+  "payload_compressed": false,
+  "task_id": "fib_opt4",
+  "model_folder_name": "",
+  "cwasm_file": "fibonacci_optimized.cwasm",
+  "wat_file": "fibonacci_optimized.wat"
+}
