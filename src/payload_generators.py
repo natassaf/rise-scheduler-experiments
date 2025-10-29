@@ -50,7 +50,7 @@ def generate_matrix_transpose_payload(num_rows=None, num_cols=None) -> List[List
     return matrix_a
 
 def generate_image_classification_payload(image_path=None) -> List[str]:
-    image_path = f"../animal_data/img{random.randint(1, 1000)}.jpg" if image_path is None else image_path
+    image_path = f"../animal_data_sample/img{random.randint(1, 7)}.jpg" if image_path is None else image_path
     with open(image_path, "rb") as image_file:
         image_data = image_file.read()
     
