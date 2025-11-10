@@ -45,7 +45,10 @@ class TaskSubmitter:
         return response
 
 
-def send_matmul_request(counter: int, url: str) -> None:
+def parse_task_id(json_file: str) -> str:
+    return json_file.split("/")[-1].split(".")[0]
+
+def send_matmul_request(url: str) -> None:
     """Send matrix multiplication requests from test cases.
     Args:
         counter: Current counter value
@@ -68,9 +71,10 @@ def send_matmul_request(counter: int, url: str) -> None:
         try:
             # Load the task request from JSON file
             task_request = load_json_file(json_file)
-            
-            # Update task_id to include counter for uniqueness
-            task_request["task_id"] = f"matmul_{counter}_{i}"
+
+            # Get task_id
+            task_id = parse_task_id(json_file)
+            task_request["task_id"] = f"{task_id}"
             
             # Submit the task
             result = submitter.submit_task(task_request)
@@ -103,8 +107,9 @@ def send_mat_transpose_request(counter: int, url: str) -> None:
             # Load the task request from JSON file
             task_request = load_json_file(json_file)
             
-            # Update task_id to include counter for uniqueness
-            task_request["task_id"] = f"matrix_transpose_{counter}_{i}"
+            # Get task_id
+            task_id = parse_task_id(json_file)
+            task_request["task_id"] = f"{task_id}"
             
             # Submit the task
             result = submitter.submit_task(task_request)
@@ -137,8 +142,9 @@ def send_fibonacci_request(counter: int, url: str) -> None:
             # Load the task request from JSON file
             task_request = load_json_file(json_file)
             
-            # Update task_id to include counter for uniqueness
-            task_request["task_id"] = f"fibonacci_{counter}_{i}"
+            # Get task_id
+            task_id = parse_task_id(json_file)
+            task_request["task_id"] = f"{task_id}"
             
             # Submit the task
             result = submitter.submit_task(task_request)
@@ -171,8 +177,9 @@ def send_fibonacci_optimized_request(counter: int, url: str) -> None:
             # Load the task request from JSON file
             task_request = load_json_file(json_file)
             
-            # Update task_id to include counter for uniqueness
-            task_request["task_id"] = f"fib_opt_{counter}_{i}"
+            # Get task_id
+            task_id = parse_task_id(json_file)
+            task_request["task_id"] = f"{task_id}"
             
             # Submit the task
             result = submitter.submit_task(task_request)
@@ -204,8 +211,9 @@ def send_image_classification_request_squeezenet_batch(counter, url: str):
             # Load the task request from JSON file
             task_request = load_json_file(json_file)
             
-            # Update task_id to include counter for uniqueness
-            task_request["task_id"] = f"image_classification_squeezenet_{counter}_{i}"
+            # Get task_id
+            task_id = parse_task_id(json_file)
+            task_request["task_id"] = f"{task_id}"
             
             # Submit the task
             result = submitter.submit_task(task_request)
@@ -238,8 +246,9 @@ def send_image_classification_request_resnet_batch(counter, url: str):
             # Load the task request from JSON file
             task_request = load_json_file(json_file)
             
-            # Update task_id to include counter for uniqueness
-            task_request["task_id"] = f"image_classification_resnet_{counter}_{i}"
+            # Get task_id
+            task_id = parse_task_id(json_file)
+            task_request["task_id"] = f"{task_id}"
             
             # Submit the task
             result = submitter.submit_task(task_request)
@@ -253,29 +262,27 @@ def send_image_classification_request_resnet_batch(counter, url: str):
 
 
 def send_test_cases(url):
-    counter = 200
+    counter = 0
     while True:
         send_fibonacci_optimized_request(counter, url)
-        counter += 1
-        send_image_classification_request_resnet_batch(counter, url)
-        counter += 1
-        # print(counter)
-        send_image_classification_request_squeezenet_batch(counter, url)
-        counter += 1
-        send_matmul_request(counter, url)
-        counter += 1
-        send_mat_transpose_request(counter, url)
-        counter += 1
-        send_fibonacci_request(counter, url)
-        counter += 1
-        time.sleep(2) 
+
+        # send_image_classification_request_resnet_batch(counter, url)
+        # counter += 1
+        # # print(counter)
+        # send_image_classification_request_squeezenet_batch(counter, url)
+        # counter += 1
+        send_matmul_request(url)
+        # send_mat_transpose_request(counter, url)
+        # counter += 1
+        # send_fibonacci_request(counter, url)
+        # time.sleep(2) 
         break
     print(counter)
     
 
 if __name__ == "__main__":
-    # url = "http://127.0.0.1:8082"
-    url="http://192.168.8.110:8082"
+    url = "http://127.0.0.1:8080"
+    # url="http://192.168.8.110:8082"
     send_test_cases(url)
     # time.sleep(1000)
-    # generate_all_test_cases(5)
+    # generate_all_test_cases(25)

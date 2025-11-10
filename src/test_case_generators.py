@@ -4,7 +4,7 @@ from utils import save_json_file
 
 
 def generate_and_save_matmul_test_cases(num_cases_per_task: int):
-    counter = 20
+    counter = 0
     name = "matmul"
     uuid = name + str(counter)
     for j in range(num_cases_per_task):
@@ -15,7 +15,7 @@ def generate_and_save_matmul_test_cases(num_cases_per_task: int):
         uuid = name + str(counter)
 
 def generate_and_save_fibonacci_test_cases(num_cases_per_task: int):
-    counter = 20
+    counter = 0
     name = "fib"
     uuid = name + str(counter)
     for j in range(num_cases_per_task):
@@ -26,7 +26,7 @@ def generate_and_save_fibonacci_test_cases(num_cases_per_task: int):
         uuid = name + str(counter)
 
 def generate_and_save_fibonacci_optimized_test_cases(num_cases_per_task: int):
-    counter = 20
+    counter = 0
     name = "fib_opt"
     uuid = name + str(counter)
     for j in range(num_cases_per_task):
@@ -37,7 +37,7 @@ def generate_and_save_fibonacci_optimized_test_cases(num_cases_per_task: int):
         uuid = name + str(counter)
 
 def generate_matrix_transpose_test_cases(num_cases_per_task: int):
-    counter = 20
+    counter = 0
     name = "matrix_transpose"
     uuid = name + str(counter)
     for j in range(num_cases_per_task):
@@ -49,7 +49,7 @@ def generate_matrix_transpose_test_cases(num_cases_per_task: int):
 
 
 def generate_image_classification_squeezenet_test_cases(num_cases_per_task: int):
-    counter = 20
+    counter = 0
     name = "image_classification_squeezenet"
     uuid = name + str(counter)
     for j in range(num_cases_per_task):
@@ -60,7 +60,7 @@ def generate_image_classification_squeezenet_test_cases(num_cases_per_task: int)
         uuid = name + str(counter)
 
 def generate_image_classification_resnet_test_cases(num_cases_per_task: int):
-    counter = 20
+    counter = 0
     name = "image_classification_resnet"
     uuid = name + str(counter)
     for j in range(num_cases_per_task):
@@ -72,8 +72,8 @@ def generate_image_classification_resnet_test_cases(num_cases_per_task: int):
 
 def generate_all_test_cases(num_cases_per_task: int):
     generate_and_save_matmul_test_cases(num_cases_per_task)
-    generate_and_save_fibonacci_test_cases(num_cases_per_task)
-    generate_and_save_fibonacci_optimized_test_cases(num_cases_per_task)
-    generate_matrix_transpose_test_cases(num_cases_per_task)
-    generate_image_classification_squeezenet_test_cases(num_cases_per_task)
-    generate_image_classification_resnet_test_cases(num_cases_per_task)
+    # generate_and_save_fibonacci_test_cases(num_cases_per_task)
+    # generate_and_save_fibonacci_optimized_test_cases(num_cases_per_task)
+    # generate_matrix_transpose_test_cases(num_cases_per_task)
+    # generate_image_classification_squeezenet_test_cases(num_cases_per_task)
+    # generate_image_classification_resnet_test_cases(num_cases_per_task)

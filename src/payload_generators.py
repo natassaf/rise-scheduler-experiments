@@ -9,7 +9,7 @@ def generate_matmul_payload(num_rows_1=None, num_rows_2=None, num_cols_2=None) -
     
     num_rows_1 = random.randint(2, 1000)
     num_cols_1 = random.randint(2, 1000)
-    num_rows_2 = num_rows_1
+    num_rows_2 = num_cols_1
     num_cols_2 = random.randint(2, 1000)
     matrix_a = []
     for i in range(num_rows_1):

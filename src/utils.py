@@ -6,8 +6,8 @@ import glob
 TRAINING_SEED = 42
 TESTING_SEED=100
 SEED = TRAINING_SEED
-WASM_MODELS_FOLDER = "/home/pi/memory-estimator/models/" 
-
+# WASM_MODELS_FOLDER = "/home/pi/memory-estimator/models/" 
+WASM_MODELS_FOLDER = "/Users/athanasiapharmake/workspace/rise-thesis/models" 
 import os
 import json
 
